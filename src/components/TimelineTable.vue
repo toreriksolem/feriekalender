@@ -45,7 +45,7 @@
                     :class="{ 'bg-pink-400': isWeekend(date) }"
                     >
                     <div
-                        class="text-xs transform -rotate-45 origin-bottom-left whitespace-nowrap">
+                        class="text-xs transform -rotate-90 origin-bottom-left whitespace-nowrap">
                            {{ formatDisplayDate(date) }}
                     </div>
                     </th>
