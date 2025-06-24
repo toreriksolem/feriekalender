@@ -30,7 +30,8 @@
   
        <!-- Tabell -->
         <div class="overflow-x-auto max-w-full">
-            <table class="table-auto border-collapse min-w-[800px]">
+            <table class="table-fixed border-collapse w-full">
+                <!-- min-w-[800px] -->
 
                 <thead>
                 <tr>
