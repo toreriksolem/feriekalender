@@ -18,20 +18,12 @@
                 Rediger ferie
             </button>
 
-            <!-- rediger ferie-knapp -->
-                <button
-                @click="showEditModal = true"
-                class="bg-pink-500 text-white font-semibold px-4 py-2 rounded shadow hover:bg-pink-600"
-            >
-                Tulleknapp
-            </button>
         </div>  
 
   
        <!-- Tabell -->
         <div class="overflow-x-auto max-w-full">
-            <table class="table-fixed border-collapse w-full">
-                <!-- min-w-[800px] -->
+            <table class="table-auto border-collapse min-w-[800px]">
 
                 <thead>
                 <tr>
@@ -45,9 +37,8 @@
                     class="px-2 py-1 text-xs"
                     :class="{ 'bg-pink-400': isWeekend(date) }"
                     >
-                    <div
-                        class="text-xs transform -rotate-90 origin-bottom-left whitespace-nowrap">
-                           {{ formatDisplayDate(date) }}
+                    <div class="text-xs" style="writing-mode: vertical-rl; white-space: nowrap;">
+                        {{ formatDisplayDate(date) }}
                     </div>
                     </th>
                 </tr>
