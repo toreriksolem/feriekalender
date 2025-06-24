@@ -17,6 +17,14 @@
             >
                 Rediger ferie
             </button>
+
+            <!-- rediger ferie-knapp -->
+                <button
+                @click="showEditModal = true"
+                class="bg-pink-500 text-white font-semibold px-4 py-2 rounded shadow hover:bg-pink-600"
+            >
+                Tulleknapp
+            </button>
         </div>  
 
   
@@ -42,6 +50,7 @@
                     </th>
                 </tr>
                 </thead>
+
 
                 <tbody>
                 <tr
