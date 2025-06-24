@@ -44,8 +44,9 @@
                     class="px-2 py-1 text-xs"
                     :class="{ 'bg-pink-400': isWeekend(date) }"
                     >
-                    <div class="text-xs" style="writing-mode: vertical-rl; white-space: nowrap;">
-                        {{ formatDisplayDate(date) }}
+                    <div
+                        class="text-xs transform -rotate-45 origin-bottom-left whitespace-nowrap">
+                           {{ formatDisplayDate(date) }}
                     </div>
                     </th>
                 </tr>
