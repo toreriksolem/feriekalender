@@ -18,62 +18,69 @@
                 Rediger ferie
             </button>
 
+            <!-- Tullball-knapp -->
+            <button
+                @click="showEditModal = true"
+                class="bg-pink-500 text-white font-semibold px-4 py-2 rounded shadow hover:bg-pink-600"
+            >
+                Tullball
+            </button>
         </div>  
 
   
        <!-- Tabell -->
-        <div class="overflow-x-auto max-w-full">
-            <table class="table-auto border-collapse min-w-[800px]">
+      <div class="overflow-x-auto max-w-full">
+        <table class="table-auto border-collapse min-w-[800px]">
+          
+          <thead>
+            <tr>
+              <!-- Empty top-left corner cell -->
+              <th class="sticky left-0 bg-pink-300 z-10 w-32 px-2 py-1"></th>
 
-                <thead>
-                <tr>
-                    <!-- Empty top-left corner cell -->
-                    <th class="sticky left-0 bg-pink-300 z-10 px-2 py-1"></th>
-
-                    <!-- Date columns -->
-                    <th
-                    v-for="date in dates"
-                    :key="date"
-                    class="px-2 py-1 text-xs"
-                    :class="{ 'bg-pink-400': isWeekend(date) }"
-                    >
-                    <div class="text-xs" style="writing-mode: vertical-rl; white-space: nowrap;">
-                        {{ formatDisplayDate(date) }}
-                    </div>
-                    </th>
-                </tr>
-                </thead>
-
-
-                <tbody>
-                <tr
-                    v-for="(friend, index) in friends"
-                    :key="friend.name"
-                    :class="{
-                    'bg-pink-200': index % 2 === 0,
-                    'bg-pink-300': index % 2 === 1
-                    }"
+              <!-- Date columns -->
+              <th
+                v-for="date in dates"
+                :key="date"
+                class="w-[28px] h-[80px] px-1 py-1 text-center align-bottom"
+                :class="{ 'bg-pink-400': isWeekend(date), 'bg-pink-300': !isWeekend(date) }"
+              >
+                <div
+                  class="text-[10px] leading-tight font-medium"
+                  style="writing-mode: vertical-rl; transform: rotate(180deg); text-align: left;"
                 >
-                    <td
-                    class="sticky left-0 z-10 px-2 py-1 font-bold whitespace-nowrap bg-inherit"
-                    >
-                    {{ friend.name }}
-                    </td>
+                  {{ formatDisplayDate(date) }}
+                </div>
+              </th>
+            </tr>
+          </thead>
 
-                    <td
-                    v-for="date in dates"
-                    :key="date"
-                    class="w-8 h-8 text-center border"
-                    :class="[
-                        index % 2 === 0 ? 'border-pink-300' : 'border-pink-200',
-                        isOnHoliday(friend, date) ? 'bg-rebeccapurple' : ''
-                    ]"
-                    ></td>
-                </tr>
-                </tbody>
+          <tbody>
+            <tr
+              v-for="(friend, index) in friends"
+              :key="friend.name"
+              :class="index % 2 === 0 ? 'bg-pink-200' : 'bg-pink-300'"
+            >
+              <td
+                class="sticky left-0 z-10 w-32 px-2 py-1 font-bold whitespace-nowrap bg-inherit"
+              >
+                {{ friend.name }}
+              </td>
 
-            </table>
-        </div>
+              <td
+                v-for="date in dates"
+                :key="date"
+                class="w-[28px] h-8 text-center border"
+                :class="[
+                  index % 2 === 0 ? 'border-pink-300' : 'border-pink-200',
+                  isOnHoliday(friend, date) ? 'bg-rebeccapurple' : ''
+                ]"
+              ></td>
+            </tr>
+          </tbody>
+
+        </table>
+      </div>
+
 
   
       <!-- Modal: Legg til ferie -->
