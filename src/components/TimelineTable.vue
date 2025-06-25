@@ -35,13 +35,13 @@
           <thead>
             <tr>
               <!-- Empty top-left corner cell -->
-              <th class="sticky left-0 bg-pink-300 z-10 w-32 px-2 py-1"></th>
+              <th class="sticky left-0 bg-pink-300 z-10 w-132 px-2 py-1"></th>
 
               <!-- Date columns -->
               <th
                 v-for="date in dates"
                 :key="date"
-                class="w-[28px] h-[80px] px-1 py-1 text-center align-bottom"
+                class="px-2 py-1 text-xs w-28 h-[100px]"
                 :class="{ 'bg-pink-400': isWeekend(date), 'bg-pink-300': !isWeekend(date) }"
               >
                 <div
@@ -71,10 +71,9 @@
                 :key="date"
                 class="w-[28px] h-8 text-center border"
                 :class="[
-                  index % 2 === 0 ? 'border-pink-300' : 'border-pink-200',
-                  isOnHoliday(friend, date) ? 'bg-rebeccapurple' : ''
+                  index % 2 === 0 ? 'border-pink-300' : 'border-pink-200'
                 ]"
-              ></td>
+              ><span v-if="isOnHoliday(friend, date)">🏖️</span></td>
             </tr>
           </tbody>
 
@@ -207,6 +206,7 @@
   "🐚", // Seashell
   "🏄‍♀️"  // Surfing
 ]
+  const onHolidayIcon = "🏖️" // Icon to show when on holiday
 
   
   const LOCAL_STORAGE_KEY = 'feriekalender-v1'
